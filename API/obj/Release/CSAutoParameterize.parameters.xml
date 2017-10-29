@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Entities-Web.config Connection String" description="Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/;provider=System.Data.SqlClient;provider connection string=&quot;data source=lucnsse61984.database.windows.net;initial catalog=BarcodeDB;persist security info=True;user id=phantomlk;password=aA@147258369;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+  </parameter>
+  <parameter name="BarcodeDBEntities-Web.config Connection String" description="BarcodeDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Entities.BarcodeModel.csdl|res://*/Models.Entities.BarcodeModel.ssdl|res://*/Models.Entities.BarcodeModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=lucnsse61984.database.windows.net;initial catalog=BarcodeDB;persist security info=True;user id=phantomlk;password=aA@147258369;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BarcodeDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="API.Models.ProContext-Web.config Connection String" description="API.Models.ProContext Connection String used in web.config by the application to access the database." defaultValue="API.Models.ProContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='API.Models.ProContext']/@connectionString" />
+  </parameter>
+</parameters>

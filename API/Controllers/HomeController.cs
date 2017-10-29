@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace API.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ViewBag.Title = "Home Page";
+
+            return View();
+        }
+
+        public ActionResult Image(string id)
+        {
+            var dir = Server.MapPath("/Storage/UserImage/");
+            var path = Path.Combine(dir, id + ".jpg"); //validate the path for security or use other means to generate the path.
+            return base.File(path, "image/jpeg");
+        }
+    }
+}

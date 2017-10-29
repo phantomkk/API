@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="api61984" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Entities-Web.config Connection String" description="" value="metadata=res://*/Models.Entities.BarModel.csdl|res://*/Models.Entities.BarModel.ssdl|res://*/Models.Entities.BarModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=lucnsse61984.database.windows.net;initial catalog=BarcodeDB;persist security info=True;user id=phantomlk;password=aA@147258369;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\lucky\\source\\repos\\API\\API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Entities']/@connectionString" />
+  </parameter>
+  <parameter name="API.Models.ProContext-Web.config Connection String" description="" value="Data Source=lucnsse61984.database.windows.net;Initial Catalog=BarcodeDB;User ID=phantomlk;Password=aA@147258369" tags="" />
+  <parameter name="BarcodeDBEntities-Web.config Connection String" description="" value="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=lucnsse61984.database.windows.net;Initial Catalog=BarcodeDB;User ID=phantomlk;Password=aA@147258369&quot;" tags="" />
+</parameters>
