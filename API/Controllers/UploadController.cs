@@ -16,7 +16,7 @@ namespace API.Controllers
 {
     public class UploadController : ApiController
     {
-        Entities db = new Entities();
+        Entities2 db = new Entities2();
         [Route("api/upload/image/user/")]
         [AllowAnonymous]
         public HttpResponseMessage PostUserImage()

@@ -100,3 +100,8 @@ C:\Users\lucky\source\repos\API\API\obj\Release\API.pdb
 C:\Users\lucky\source\repos\API\API\obj\Release\API.csprojResolveAssemblyReference.cache
 C:\Users\lucky\source\repos\API\API\bin\AutoMapper.dll
 C:\Users\lucky\source\repos\API\API\bin\AutoMapper.xml
+C:\Users\lucky\source\repos\API\API\bin\Microsoft.Owin.dll
+C:\Users\lucky\source\repos\API\API\bin\Owin.dll
+C:\Users\lucky\source\repos\API\API\bin\System.Web.Http.Owin.dll
+C:\Users\lucky\source\repos\API\API\bin\Microsoft.Owin.xml
+C:\Users\lucky\source\repos\API\API\bin\System.Web.Http.Owin.xml

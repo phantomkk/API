@@ -17,7 +17,7 @@ namespace API.Controllers
 {
     public class ProductsController : ApiController
     {
-        Entities db = new Entities();
+        Entities2 db = new Entities2();
 
         public IEnumerable<ProductDTO> GetProducts()
         {
@@ -40,7 +40,7 @@ namespace API.Controllers
                      Price = p.Price,
                      Website = p.Website,
                      CategoryName = p.Category.Name,
-                     AverageRating = p.Ratings.Count == 0 ? 0 : p.Ratings.Average(a => a != null ? a.Rating1 : 0).Value
+                     AverageRating = p.Ratings.Count == 0 ? 0 : p.Ratings.Average(a => a != null ? a.Rating1 : 0)
                  });
             //Mapper
             //    .Initialize(cfg => cfg.CreateMap<Product, ProductDTO>()
@@ -73,7 +73,7 @@ namespace API.Controllers
                        ImgDefault = p.ImgDefault,
                        ComanyName = p.Company.Name,
                        CategoryName = p.Category.Name,
-                       AverageRating = p.Ratings.Average(a => a.Rating1).Value
+                       AverageRating = p.Ratings.Average(a => a.Rating1)
                    }).Where(p => p.Name.Contains(name));
             return products;
         }
@@ -109,7 +109,7 @@ namespace API.Controllers
                                       Name = p.Name,
                                       ImgDefault = p.ImgDefault,
                                       CategoryName = p.Category.Name,
-                                      AverageRating = p.Ratings.Average(a => a.Rating1).Value,
+                                      AverageRating = p.Ratings.Average(a => a.Rating1),
                                       ComanyName = p.Company.Name,
                                       CompanyID = p.CompanyID,
                                       Price = p.Price,
@@ -141,7 +141,7 @@ namespace API.Controllers
                                       Email = p.Email,
                                       Name = p.Name,
                                       CategoryName = p.Category.Name,
-                                      AverageRating = p.Ratings.Average(a => a.Rating1).Value,
+                                      AverageRating = p.Ratings.Average(a => a.Rating1),
                                       ComanyName = p.Company.Name,
                                       CompanyID = p.CompanyID,
                                       Price = p.Price,
@@ -170,7 +170,7 @@ namespace API.Controllers
                                Email = pro.Email,
                                Name = pro.Name,
                                CategoryName = pro.Category.Name,
-                               AverageRating = pro.Ratings.Average(a => a.Rating1).Value,
+                               AverageRating = pro.Ratings.Average(a => a.Rating1),
                                ComanyName = pro.Company.Name,
                                CompanyID = pro.CompanyID,
                                Price = pro.Price,

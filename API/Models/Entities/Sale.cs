@@ -19,6 +19,8 @@ namespace API.Models.Entities
         public double Price { get; set; }
         public System.DateTime DateCreate { get; set; }
         public Nullable<bool> IsDelete { get; set; }
+        public string ImagePath { get; set; }
+        public string Name { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }

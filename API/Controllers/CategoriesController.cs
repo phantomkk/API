@@ -15,7 +15,7 @@ namespace API.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private Entities db = new Entities();
+        private Entities2 db = new Entities2();
 
         // GET: api/Categories
         public IQueryable<Category> GetCategories()
@@ -59,7 +59,7 @@ namespace API.Controllers
                      CompanyID = p.CompanyID,
                      Price = p.Price,
                      Website = p.Website,
-                     AverageRating = p.Ratings.Count == 0 ? 0 : p.Ratings.Average(a => a != null ? a.Rating1 : 0).Value
+                     AverageRating = p.Ratings.Count == 0 ? 0 : p.Ratings.Average(a => a != null ? a.Rating1 : 0.0) 
                  });
             return products;
         }

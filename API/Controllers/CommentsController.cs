@@ -15,7 +15,7 @@ namespace API.Controllers
 {
     public class CommentsController : ApiController
     {
-        private Entities db = new Entities();
+        private Entities2 db = new Entities2();
 
         // GET: api/Comments
         public IQueryable<Comment> GetComments()

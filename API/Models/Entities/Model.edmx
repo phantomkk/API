@@ -63,7 +63,7 @@
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="Rating" Type="int" />
+          <Property Name="Rating" Type="float" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -75,6 +75,8 @@
           <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="DateCreate" Type="datetime" Nullable="false" />
           <Property Name="IsDelete" Type="bit" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="1000" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -321,7 +323,7 @@
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Rating1" Type="Int32" />
+          <Property Name="Rating1" Type="Double" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Rating_Product" FromRole="Rating" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="Self.FK_Rating_User" FromRole="Rating" ToRole="User" />
         </EntityType>
@@ -335,6 +337,8 @@
           <Property Name="Price" Type="Double" Nullable="false" />
           <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Sale_Product" FromRole="Sale" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="Self.FK_Sale_User" FromRole="Sale" ToRole="User" />
         </EntityType>
@@ -466,7 +470,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BarcodeDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Companies" EntityType="Self.Company" />
@@ -517,7 +521,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BarcodeDBModelStoreContainer" CdmEntityContainer="BarcodeDBEntities">
+        <EntityContainerMapping StorageEntityContainer="BarcodeDBModelStoreContainer" CdmEntityContainer="Entities2">
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="BarcodeDBModel.Category">
               <MappingFragment StoreEntitySet="Category">
@@ -591,6 +595,8 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

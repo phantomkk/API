@@ -12,12 +12,13 @@ using API.Models;
 using API.Models.Entities;
 using AutoMapper;
 using API.Models.Dto;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
     public class UsersController : ApiController
     {
-        private Entities db = new Entities();
+        private Entities2 db = new Entities2();
 
         // GET: api/Users
         public IQueryable<User> GetUsers()
@@ -31,14 +32,14 @@ namespace API.Controllers
         {
 
             /////ERROR
-            //User user = db.Users.Find(id);
-            //if (user == null)
-            //{
-            //    return NotFound();
-            //}
-            //Mapper.Initialize(config => config.CreateMap<User, UserDTO>());
-            //UserDTO userDTO = Mapper.Map<User, UserDTO>(user);
-            return Ok();
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            Mapper.Initialize(config => config.CreateMap<User, UserDTO>());
+            UserDTO userDTO = Mapper.Map<User, UserDTO>(user);
+            return Ok(userDTO);
         }
 
         // PUT: api/Users/5
@@ -76,34 +77,41 @@ namespace API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(User))]
+        // POST: api/Users 
         [Route("api/users/login/")]
-        public IHttpActionResult PostUserLogin(User user)
-        {
+        public HttpResponseMessage PostUserLogin(User user)
+        {  
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                //return BadRequest(ModelState);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
-            IQueryable<User> userCorrect = db.Users.Where(u => u.Username.Equals(user.Username) && u.Password.Equals(user.Password));
+             User userCorrect =
+                db.Users.Where(u => u.Username.Equals(user.Username) && u.Password.Equals(user.Password)).FirstOrDefault();
             if(user == null || userCorrect == null)
             {
-                return  NotFound();
-            } 
-            return CreatedAtRoute("DefaultApi", new { id = user.ID }, userCorrect.First());
+                //return  NotFound();
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            //return CreatedAtRoute("DefaultApi", new {controller = "users", id = user.ID }, userCorrect.First());
+            Mapper.Initialize(conf => conf.CreateMap<User, UserDTO>());
+            var usrDTO = Mapper.Map<User, UserDTO>(userCorrect);
+            return Request.CreateResponse(HttpStatusCode.OK, usrDTO);
         }
 
         // POST: api/Users
         [ResponseType(typeof(User))]
         [Route("api/users/register/")]
-        public IHttpActionResult PostUserRegister(User user)
+        public HttpResponseMessage PostUserRegister(User user)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
-            db.Users.Add(user); 
-            return CreatedAtRoute("DefaultApi", new { id = user.ID }, user);
+            db.Users.Add(user);
+            Mapper.Initialize(conf => conf.CreateMap<User, UserDTO>());
+            var usrDTO = Mapper.Map<User, UserDTO>(user);
+            return Request.CreateResponse(HttpStatusCode.OK, usrDTO);
         }
 
         // DELETE: api/Users/5
